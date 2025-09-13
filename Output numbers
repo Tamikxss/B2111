@@ -1,0 +1,5 @@
+start = int(input("Enter the number from: "))
+end = int(input("Enter the number to: "))
+
+for i in range(start, end + 1):
+    print(i)
