@@ -1,0 +1,43 @@
+class BankAccount: 
+    def __init__(self, account_number, balance): 
+        self.account_number = account_number 
+        self.balance = balance 
+ 
+    def deposit(self, amount): 
+        self.balance += amount
+        print(f"Deposited: {amount}. New balance: {self.balance}")
+ 
+    def withdraw(self, amount): 
+        if self.balance >= amount: 
+            self.balance -= amount 
+            print(f"Withdrawn: {amount}. Remaining balance: {self.balance}")
+        else: 
+            print("Insufficient funds!") 
+
+# Create account object
+account = BankAccount("UA123456", 1000) 
+
+# User interaction loop
+while True:
+    print("\nSelect an action:")
+    print("1 - Deposit")
+    print("2 - Withdraw")
+    print("3 - Show balance")
+    print("0 - Exit")
+    
+    choice = input("Enter the action number: ")
+    
+    if choice == "1":
+        amount = float(input("Amount to deposit: "))
+        account.deposit(amount)
+    elif choice == "2":
+        amount = float(input("Amount to withdraw: "))
+        account.withdraw(amount)
+    elif choice == "3":
+        print(f"Account: {account.account_number}")
+        print(f"Balance: {account.balance}")
+    elif choice == "0":
+        print("Exiting the program")
+        break
+    else:
+        print("Invalid choice, please try again")
