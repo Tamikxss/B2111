@@ -1,0 +1,17 @@
+a = int(input("Enter number a: "))
+b = int(input("Enter number b: "))
+op = input("Enter action (+, -, *, /): ")
+
+if op == "+":
+    print("Result:", a + b)
+elif op == "-":
+    print("Result:", a - b)
+elif op == "*":
+    print("Result:", a * b)
+elif op == "/":
+    if b != 0:
+        print("Result:", a / b)
+    else:
+        print("Division by zero!")
+else:
+    print("Unknown operation")
