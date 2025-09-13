@@ -1,0 +1,9 @@
+n = int(input("Enter your points: "))
+if n >= 90:
+    print('You have A mark')
+elif n >= 70:
+    print('You have B mark')
+elif n >= 50:
+    print('You have C mark')
+else:
+    print('You have D mark')
