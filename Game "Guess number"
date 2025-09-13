@@ -1,0 +1,18 @@
+import random
+number = random.randint(1, 10)
+lifes = 3
+print('you have',lifes,'attempts')
+while lifes > 0:
+    
+    anumber = int(input('Guess number from 1 to 10 - '))
+    if anumber > number:
+        lifes -= 1
+        print('number is less, you have',lifes,'attemt(s) left')
+    elif anumber < number:
+        lifes -= 1
+        print('number is bigger, you have',lifes,'attemt(s) left')
+    else:
+        print('You guessed the right one! Nice job!')
+        break
+if lifes == 0:
+    print ('You lost')
