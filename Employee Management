@@ -1,0 +1,30 @@
+class Employee:
+    def __init__(self, name, position, salary):
+        self.name = name
+        self.position = position
+        self.salary = salary
+
+class Department:
+    def __init__(self):
+        self.employees = []
+
+    def add_employee(self, employee):
+        self.employees.append(employee)
+
+    def remove_employee(self, name):
+        self.employees = [e for e in self.employees if e.name != name]
+
+    def total_salary(self):
+        return sum(e.salary for e in self.employees)
+
+e1 = Employee("Петро", "Програміст", 1500)
+e2 = Employee("Марія", "Дизайнер", 1300)
+
+dept = Department()
+dept.add_employee(e1)
+dept.add_employee(e2)
+
+print(dept.total_salary())  # 2800
+
+dept.remove_employee("Марія")
+print(dept.total_salary())  # 1500
