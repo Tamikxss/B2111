@@ -1,0 +1,21 @@
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return "Звуки тварини"
+
+class Dog(Animal):
+    def speak(self):
+        return "Гав-гав"
+
+class Cat(Animal):
+    def speak(self):
+        return "Мяу"
+
+dog = Dog("Бобік")
+cat = Cat("Мурка")
+
+print(dog.name, "-", dog.speak())  # Бобік - Гав-гав
+print(cat.name, "-", cat.speak())  # Мурка - Мяу
+
