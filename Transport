@@ -1,0 +1,18 @@
+class Vehicle:
+    def __init__(self, speed):
+        self.speed = speed
+
+    def move(self):
+        return f"Рухається зі швидкістю {self.speed} км/год"
+
+class Car(Vehicle):
+    pass
+
+class Bicycle(Vehicle):
+    pass
+
+car = Car(100)
+bike = Bicycle(20)
+
+print(car.move())  # Рухається зі швидкістю 100 км/год
+print(bike.move())  # Рухається зі швидкістю 20 км/год
