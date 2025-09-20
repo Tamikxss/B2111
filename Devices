@@ -1,0 +1,17 @@
+class Device:
+    def turn_on(self):
+        return "Пристрій увімкнено"
+
+    def turn_off(self):
+        return "Пристрій вимкнено"
+
+class Smartphone(Device):
+    pass
+
+class Laptop(Device):
+    pass
+phone = Smartphone()
+laptop = Laptop()
+
+print(phone.turn_on())  # Пристрій увімкнено
+print(laptop.turn_off())  # Пристрій вимкнено
