@@ -1,0 +1,42 @@
+class BankAccount:
+    def __init__(self, owner, account_number, balance=0):
+        self.owner = owner
+        self.account_number = account_number
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+        else:
+            print("Недостатньо коштів")
+
+class Bank:
+    def __init__(self):
+        self.accounts = []
+
+    def add_account(self, account):
+        self.accounts.append(account)
+
+    def transfer(self, from_account_number, to_account_number, amount):
+        from_acc = next((a for a in self.accounts if a.account_number == from_account_number), None)
+        to_acc = next((a for a in self.accounts if a.account_number == to_account_number), None)
+        if from_acc and to_acc and from_acc.balance >= amount:
+            from_acc.withdraw(amount)
+            to_acc.deposit(amount)
+        else:
+            print("Помилка переказу")
+
+acc1 = BankAccount("Іван", "123", 1000)
+acc2 = BankAccount("Оля", "456", 500)
+
+bank = Bank()
+bank.add_account(acc1)
+bank.add_account(acc2)
+
+bank.transfer("123", "456", 300)
+
+print(acc1.balance)  # 700
+print(acc2.balance)  # 800
