@@ -1,0 +1,18 @@
+class ProgrammingLanguage:
+    def __init__(self, name):
+        self.name = name
+
+    def say_hello(self):
+        return f"Hello from {self.name}!"
+
+class PythonLang(ProgrammingLanguage):
+    pass
+
+class JavaLang(ProgrammingLanguage):
+    pass
+py = PythonLang("Python")
+java = JavaLang("Java")
+
+print(py.say_hello())  # Hello from Python!
+print(java.say_hello())  # Hello from Java!
+
