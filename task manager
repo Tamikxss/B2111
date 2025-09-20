@@ -1,0 +1,39 @@
+class Task:
+    def __init__(self, name, description, deadline):
+        self.name = name
+        self.description = description
+        self.deadline = deadline
+        self.completed = False
+
+    def mark_completed(self):
+        self.completed = True
+
+class TaskManager:
+    def __init__(self):
+        self.tasks = []
+
+    def add_task(self, task):
+        self.tasks.append(task)
+
+    def remove_task(self, task_name):
+        self.tasks = [task for task in self.tasks if task.name != task_name]
+
+    def mark_task_completed(self, task_name):
+        for task in self.tasks:
+            if task.name == task_name:
+                task.mark_completed()
+
+    def list_tasks(self):
+        for task in self.tasks:
+            status = "Виконано" if task.completed else "Не виконано"
+            print(f"{task.name} - {status} - Дедлайн: {task.deadline}")
+tm = TaskManager()
+
+t1 = Task("Зробити домашку", "Математика, стор. 10-12", "2025-09-21")
+t2 = Task("Прибрати кімнату", "Помити підлогу", "2025-09-22")
+
+tm.add_task(t1)
+tm.add_task(t2)
+
+tm.mark_task_completed("Зробити домашку")
+tm.list_tasks()
